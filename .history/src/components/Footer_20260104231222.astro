@@ -9,17 +9,10 @@ const LINKS = {
 
 <footer class="footer">
   <div class="inner">
-    <p class="copy">
-      © {today.getFullYear()} Greivin José Arce Navarro. All rights reserved.
-    </p>
+    <p class="copy">© {today.getFullYear()} Greivin José Arce Navarro. All rights reserved.</p>
 
     <div class="social" aria-label="Social links">
-      <a
-        href="{LINKS.github}"
-        target="_blank"
-        rel="noopener"
-        aria-label="GitHub"
-      >
+      <a href={LINKS.github} target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true">
           <path
             fill="currentColor"
@@ -28,12 +21,7 @@ const LINKS = {
         </svg>
       </a>
 
-      <a
-        href="{LINKS.linkedin}"
-        target="_blank"
-        rel="noopener"
-        aria-label="LinkedIn"
-      >
+      <a href={LINKS.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
           <path
             fill="currentColor"
@@ -47,7 +35,7 @@ const LINKS = {
 
 <style>
   .footer {
-    padding: 18px 0 22px; /* más compacto */
+    padding: 28px 0 56px;
     border-top: 1px solid rgba(0, 0, 0, 0.06);
     color: rgba(0, 0, 0, 0.6);
   }
@@ -73,16 +61,15 @@ const LINKS = {
   .social {
     display: flex;
     align-items: center;
-    gap: 10px; /* un poco más cerrado */
+    gap: 14px;
   }
 
   .social a {
-    width: 40px; /* tamaño consistente */
-    height: 40px; /* tamaño consistente */
     color: rgba(0, 0, 0, 0.72);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    padding: 8px; /* área clickeable más cómoda */
     border-radius: 12px;
     opacity: 0.72;
     transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
@@ -104,10 +91,6 @@ const LINKS = {
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
-    }
-
-    .footer {
-      padding: 16px 0 18px; /* aún más compacto en móvil */
     }
   }
 </style>

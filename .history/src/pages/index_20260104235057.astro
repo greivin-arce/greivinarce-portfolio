@@ -1,0 +1,576 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const LINKS = {
+	github: 'https://github.com/greivin-arce',
+	linkedin: 'https://www.linkedin.com/in/greivin-arce-navarro-77b62925a/',
+	email: 'mailto:greivin.arce.n@gmail.com',
+	emailPlain: 'greivin.arce.n@gmail.com',
+};
+
+const PROJECTS = [
+  {
+    title: 'Transaction Processing API',
+    type: 'personal',
+    desc: 'Secure REST API with pagination, sorting, and integration tests, designed with clean architecture and production reliability in mind.',
+    focus: [
+      'API design & consistency',
+      'Pagination and sorting standards',
+      'Integration testing',
+      'Validation & error contracts',
+    ],
+    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'JUnit'],
+    github: 'https://github.com/greivin-arce/transaction-processing-api',
+    live: '',
+    privateNote: '',
+  },
+
+  {
+    title: 'Electronic Invoicing Platform — Municipalidad de Heredia',
+    type: 'client',
+    desc: 'End-to-end electronic invoicing system built from scratch, fully compliant with Costa Rica’s Hacienda v4.4 requirements.',
+    focus: [
+      'Government-grade compliance',
+      'REST API integrations',
+      'Regulated financial workflows',
+      'Angular + backend coordination',
+    ],
+    stack: ['Java', 'REST APIs', 'Angular', 'Hacienda FE v4.4'],
+    github: '',
+    live: '',
+    privateNote: 'Private repository (client-owned).',
+  },
+
+  {
+    title: 'Farm Management System — Universidad Nacional de Costa Rica',
+    type: 'client',
+    desc: 'Backend refactor and cloud migration of a legacy JavaFX system to Java 21 and REST APIs, preserving the existing UI.',
+    focus: [
+      'Large-scale refactor',
+      'JavaFX → API-based architecture',
+      'AWS Cognito authentication',
+      'Cloud deployment',
+    ],
+    stack: ['Java 21', 'REST APIs', 'AWS Cognito', 'Cloud'],
+    github: '',
+    live: '',
+    privateNote: 'Private repository (institution-owned).',
+  },
+
+  {
+    title: 'Electronic Invoicing System — AyA (≈45,000 invoices/day)',
+    type: 'client',
+    desc: 'Migration and maintenance of a high-volume electronic invoicing platform processing approximately 45,000 invoices per day.',
+    focus: [
+      'High-throughput systems',
+      'Oracle-based large datasets',
+      'Regulatory migrations (v4.3 → v4.4)',
+      'Production-critical stability',
+    ],
+    stack: ['Java EE', 'Oracle', 'PrimeFaces', 'Payara', 'Hacienda FE v4.4'],
+    github: '',
+    live: '',
+    privateNote: 'Private repository (client-owned).',
+  },
+];
+
+const SKILLS = [
+	'Java (8–21)',
+	'Spring Boot',
+	'REST APIs',
+	'PostgreSQL',
+	'Oracle',
+	'AWS basics (Lambda/Cognito)',
+	'Git/GitHub',
+	'Testing (JUnit/MockMvc)',
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+
+		<main class="page">
+			<section class="hero">
+				<p class="kicker">Greivin Arce • Software Engineer</p>
+
+				<h1>Backend Engineer focused on secure, scalable systems.</h1>
+
+				<p class="subtitle">
+					I design and deliver <strong>production-grade APIs</strong> using <strong>Java</strong> and{' '}
+					<strong>Spring Boot</strong>, with an emphasis on <strong>security</strong>,{' '}
+					<strong>reliability</strong>, and <strong>maintainable architecture</strong>. I’m comfortable
+					working end-to-end: requirements → design → implementation → automated testing → deployment.
+				</p>
+
+				<div class="highlights">
+					<div class="highlight">
+						<p class="hl-title">Architecture & quality</p>
+						<p class="hl-text">
+							Clean architecture, consistent response contracts, validation standards, pagination/sorting
+							patterns, and testable service boundaries.
+						</p>
+					</div>
+
+					<div class="highlight">
+						<p class="hl-title">Security mindset</p>
+						<p class="hl-text">
+							OAuth2/JWT flows, role/group-based access, safe input handling, and API hardening aligned
+							with real-world usage.
+						</p>
+					</div>
+
+					<div class="highlight">
+						<p class="hl-title">Data & integrations</p>
+						<p class="hl-text">
+							Strong SQL + domain modeling, working with <strong>PostgreSQL</strong> and{' '}
+							<strong>Oracle</strong>, and integrating with external services in regulated workflows.
+						</p>
+					</div>
+				</div>
+
+				<div class="quick-links" aria-label="Profile links">
+					<a href={LINKS.github} target="_blank" rel="noopener">GitHub</a>
+					<a href={LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+					<a href={LINKS.email}>Email</a>
+				</div>
+			</section>
+
+			<section id="projects" class="section">
+				<div class="section-head">
+					<h2>Projects</h2>
+					<p class="section-subtitle">
+						Selected work that highlights API design, reliability, security, and real-world integrations.
+					</p>
+				</div>
+
+				<div class="grid">
+					{PROJECTS.map((p) => (
+						<article class="card project">
+							<p class="project-type">
+								{p.type === 'personal' ? 'Personal project' : 'Client project'}
+							</p>
+
+							<div class="project-top">
+								<h3>{p.title}</h3>
+								<p class="muted">{p.desc}</p>
+							</div>
+
+							{p.focus?.length ? (
+								<div class="focus">
+									<p class="focus-label">Focus</p>
+									<ul class="focus-list">
+										{p.focus.map((f) => <li>{f}</li>)}
+									</ul>
+								</div>
+							) : null}
+
+							<ul class="tags" aria-label="Tech stack">
+								{p.stack.map((t) => <li>{t}</li>)}
+							</ul>
+
+							<div class="links">
+								{p.github && (
+									<a href={p.github} target="_blank" rel="noopener">
+										GitHub →
+									</a>
+								)}
+								{p.live && (
+									<a href={p.live} target="_blank" rel="noopener">
+										Live →
+									</a>
+								)}
+							</div>
+
+							{!p.github && p.privateNote ? (
+								<p class="private-note muted">{p.privateNote}</p>
+							) : null}
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section id="skills" class="section section-compact">
+				<div class="section-head">
+					<h2>Skills</h2>
+					<p class="section-subtitle muted">
+						Core tools I use regularly. Projects provide deeper context and real-world application.
+					</p>
+				</div>
+
+				<ul class="pills">
+					{SKILLS.map((s) => (
+						<li class="pill">{s}</li>
+					))}
+				</ul>
+			</section>
+
+			<section id="experience" class="section">
+				<div class="section-head">
+					<h2>Experience</h2>
+				</div>
+
+				<div class="card">
+					<div class="exp-head">
+						<h3>GBSYS — Software Engineer</h3>
+						<p class="exp-dates">2024–Present</p>
+					</div>
+
+					<ul class="bullets">
+						<li>Modernized legacy modules to a consistent Spring Boot architecture.</li>
+						<li>Built secure endpoints with validation, structured responses, and automated tests.</li>
+						<li>Worked with Oracle/PostgreSQL and electronic invoicing workflows.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section id="contact" class="section">
+				<div class="section-head">
+					<h2>Contact</h2>
+				</div>
+
+				<div class="card">
+					<p class="muted">
+						If you want to collaborate or discuss opportunities, feel free to reach out.
+					</p>
+
+					<div class="cta">
+						<a class="btn primary" href={LINKS.email}>{LINKS.emailPlain}</a>
+
+						<button class="btn" type="button" data-copy-email>
+							Copy email
+						</button>
+
+						<a class="btn" href={LINKS.github} target="_blank" rel="noopener">GitHub</a>
+						<a class="btn" href={LINKS.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+					</div>
+
+					<p class="copy-hint muted" data-copy-status aria-live="polite"></p>
+				</div>
+			</section>
+		</main>
+
+		<Footer />
+
+		<script is:inline>
+			(() => {
+				const btn = document.querySelector('[data-copy-email]');
+				const status = document.querySelector('[data-copy-status]');
+				const email = 'greivin.arce.n@gmail.com';
+
+				if (!btn || !status) return;
+
+				btn.addEventListener('click', async () => {
+					try {
+						await navigator.clipboard.writeText(email);
+						status.textContent = 'Copied to clipboard.';
+						window.setTimeout(() => (status.textContent = ''), 1800);
+					} catch (e) {
+						status.textContent = 'Could not copy. You can select and copy the email manually.';
+					}
+				});
+			})();
+		</script>
+	</body>
+</html>
+
+<style>
+	.page {
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 0 18px;
+	}
+
+	.hero {
+		padding: 40px 0 18px;
+	}
+
+	.kicker {
+		color: rgba(0, 0, 0, 0.62);
+		margin: 0 0 10px;
+	}
+
+	h1 {
+		font-size: 44px;
+		line-height: 1.05;
+		margin: 0 0 12px;
+		letter-spacing: -0.03em;
+	}
+
+	.subtitle {
+		max-width: 78ch;
+		color: rgba(0, 0, 0, 0.78);
+		font-size: 18px;
+		line-height: 1.65;
+		margin: 0 0 14px;
+	}
+
+	.quick-links {
+		display: flex;
+		gap: 14px;
+		margin-top: 10px;
+	}
+
+	.quick-links a {
+		text-decoration: none;
+		color: rgba(0, 0, 0, 0.72);
+		font-weight: 600;
+	}
+
+	.quick-links a:hover {
+		text-decoration: underline;
+	}
+
+	.highlights {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+		margin: 16px 0 10px;
+	}
+
+	.highlight {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 16px;
+		padding: 14px;
+		background: #fff;
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+	}
+
+	.hl-title {
+		margin: 0 0 6px;
+		font-weight: 700;
+		color: rgba(0, 0, 0, 0.92);
+		font-size: 13px;
+		letter-spacing: -0.01em;
+	}
+
+	.hl-text {
+		margin: 0;
+		color: rgba(0, 0, 0, 0.68);
+		font-size: 14px;
+		line-height: 1.55;
+	}
+
+	.section {
+		padding: 38px 0;
+	}
+
+	.section-compact {
+		padding: 28px 0;
+	}
+
+	.section-head {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		margin-bottom: 14px;
+	}
+
+	h2 {
+		font-size: 20px;
+		margin: 0;
+		letter-spacing: -0.02em;
+	}
+
+	.section-subtitle {
+		margin: 0;
+		color: rgba(0, 0, 0, 0.68);
+		line-height: 1.5;
+		max-width: 80ch;
+	}
+
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	@media (max-width: 900px) {
+		.highlights {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 820px) {
+		.grid {
+			grid-template-columns: 1fr;
+		}
+		h1 {
+			font-size: 36px;
+		}
+	}
+
+	.card {
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 16px;
+		padding: 16px;
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+		background: #fff;
+	}
+
+	.project-type {
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: rgba(0, 0, 0, 0.55);
+		margin: 0 0 6px;
+	}
+
+	.project h3 {
+		margin: 0 0 8px;
+	}
+
+	.project-top .muted {
+		margin: 0;
+	}
+
+	.focus {
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 1px solid rgba(0, 0, 0, 0.08);
+	}
+
+	.focus-label {
+		margin: 0 0 8px;
+		font-weight: 800;
+		font-size: 12px;
+		letter-spacing: -0.01em;
+		color: rgba(0, 0, 0, 0.88);
+	}
+
+	.focus-list {
+		margin: 0;
+		padding-left: 18px;
+		color: rgba(0, 0, 0, 0.72);
+		line-height: 1.55;
+	}
+
+	.muted {
+		color: rgba(0, 0, 0, 0.68);
+	}
+
+	.tags {
+		display: flex;
+		gap: 8px;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+		margin: 12px 0 0;
+	}
+
+	.tags li {
+		font-size: 12px;
+		padding: 6px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		color: rgba(0, 0, 0, 0.75);
+		background: rgba(0, 0, 0, 0.02);
+	}
+
+	.links {
+		display: flex;
+		gap: 12px;
+		margin-top: 12px;
+	}
+
+	.links a {
+		text-decoration: none;
+		font-weight: 800;
+		color: rgba(0, 0, 0, 0.9);
+	}
+
+	.links a:hover {
+		text-decoration: underline;
+	}
+
+	.private-note {
+		margin: 10px 0 0;
+		font-size: 12px;
+	}
+
+	.cta {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+		margin-top: 10px;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 14px;
+		border-radius: 12px;
+		border: 1px solid rgba(0, 0, 0, 0.12);
+		text-decoration: none;
+		font-weight: 700;
+		background: #fff;
+		color: rgba(0, 0, 0, 0.9);
+		cursor: pointer;
+	}
+
+	.btn:hover {
+		border-color: rgba(0, 0, 0, 0.2);
+	}
+
+	.btn.primary {
+		background: #0b0b0c;
+		color: #fff;
+		border-color: #0b0b0c;
+	}
+
+	.copy-hint {
+		margin: 10px 0 0;
+		min-height: 1em;
+	}
+
+	.exp-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 14px;
+	}
+
+	.exp-head h3 {
+		margin: 0;
+	}
+
+	.exp-dates {
+		margin: 0;
+		color: rgba(0, 0, 0, 0.62);
+		font-weight: 700;
+		font-size: 13px;
+	}
+
+	.bullets {
+		margin: 10px 0 0;
+		padding-left: 18px;
+		color: rgba(0, 0, 0, 0.72);
+		line-height: 1.6;
+	}
+
+	.pills {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.pill {
+		font-size: 13px;
+		padding: 8px 12px;
+		border-radius: 999px;
+		background: rgba(0, 0, 0, 0.03);
+		border: 1px solid rgba(0, 0, 0, 0.06);
+	}
+</style>
