@@ -21,12 +21,12 @@ const LINKS = {
         <a class="nav-link" href="#projects">Projects</a>
       </div>
 
-      <a href={LINKS.cv} class="cv-btn" target="_blank" rel="noopener">
+      <a href="{LINKS.cv}" class="cv-btn" target="_blank" rel="noopener">
         Download CV
       </a>
 
       <a
-        href={LINKS.cv}
+        href="{LINKS.cv}"
         class="cv-icon"
         target="_blank"
         rel="noopener"
@@ -43,7 +43,7 @@ const LINKS = {
 
       <div class="social-links" aria-label="Social links">
         <a
-          href={LINKS.github}
+          href="{LINKS.github}"
           target="_blank"
           rel="noopener"
           aria-label="GitHub"
@@ -58,7 +58,7 @@ const LINKS = {
         </a>
 
         <a
-          href={LINKS.linkedin}
+          href="{LINKS.linkedin}"
           target="_blank"
           rel="noopener"
           aria-label="LinkedIn"
@@ -133,11 +133,8 @@ const LINKS = {
     background: rgba(0, 0, 0, 0.04);
   }
 
-  /* Desktop default */
-  .cv-icon {
-    display: none;
-  }
-
+  /* IMPORTANT: do NOT apply the old nav a styles globally */
+  /* Button */
   .cv-btn {
     padding: 10px 12px;
     border-radius: 14px;
@@ -147,35 +144,12 @@ const LINKS = {
     text-decoration: none;
     font-weight: 800;
     white-space: nowrap;
-    transition: transform 0.15s ease, background 0.15s ease,
-      border-color 0.15s ease;
   }
 
   .cv-btn:hover {
     background: rgba(0, 0, 0, 0.03);
     border-color: rgba(0, 0, 0, 0.18);
     transform: translateY(-1px);
-  }
-
-  /* Mobile: hide text button, show icon */
-  @media (max-width: 720px) {
-    .cv-btn {
-      display: none;
-    }
-    .cv-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      color: rgba(0, 0, 0, 0.82);
-      background: #fff;
-    }
-    .cv-icon:hover {
-      background: rgba(0, 0, 0, 0.04);
-      transform: translateY(-1px);
-    }
   }
 
   .social-links {

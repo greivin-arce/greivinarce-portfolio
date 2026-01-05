@@ -21,34 +21,17 @@ const LINKS = {
         <a class="nav-link" href="#projects">Projects</a>
       </div>
 
-      <a href={LINKS.cv} class="cv-btn" target="_blank" rel="noopener">
+      <a
+        href={LINKS.cv}
+        class="cv-btn"
+        target="_blank"
+        rel="noopener"
+      >
         Download CV
       </a>
 
-      <a
-        href={LINKS.cv}
-        class="cv-icon"
-        target="_blank"
-        rel="noopener"
-        aria-label="Download CV"
-        title="Download CV"
-      >
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
-          <path
-            fill="currentColor"
-            d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4.01 4a1 1 0 0 1-1.39 0l-4.01-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1zM5 19a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1z"
-          />
-        </svg>
-      </a>
-
       <div class="social-links" aria-label="Social links">
-        <a
-          href={LINKS.github}
-          target="_blank"
-          rel="noopener"
-          aria-label="GitHub"
-          title="GitHub"
-        >
+        <a href={LINKS.github} target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
           <svg viewBox="0 0 16 16" aria-hidden="true" width="22" height="22">
             <path
               fill="currentColor"
@@ -57,13 +40,7 @@ const LINKS = {
           </svg>
         </a>
 
-        <a
-          href={LINKS.linkedin}
-          target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
-          title="LinkedIn"
-        >
+        <a href={LINKS.linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22">
             <path
               fill="currentColor"
@@ -77,13 +54,13 @@ const LINKS = {
 </header>
 
 <style>
-  .site-header {
+  .site-header{
     margin: 0;
     background: white;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0,0,0,.06);
   }
 
-  .nav {
+  .nav{
     max-width: 980px;
     margin: 0 auto;
     padding: 10px 18px;
@@ -93,127 +70,97 @@ const LINKS = {
     gap: 16px;
   }
 
-  .brand {
+  .brand{
     margin: 0;
     font-size: 16px;
     font-weight: 800;
     letter-spacing: -0.01em;
   }
 
-  .brand a {
+  .brand a{
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.92);
+    color: rgba(0,0,0,.92);
     padding: 8px 0;
     display: inline-flex;
     align-items: center;
   }
 
-  .nav-right {
+  .nav-right{
     display: flex;
     align-items: center;
     gap: 12px;
   }
 
   /* Internal links (tabs) */
-  .internal-links {
+  .internal-links{
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  .nav-link {
+  .nav-link{
     padding: 10px 10px;
     border-radius: 12px;
-    color: rgba(0, 0, 0, 0.86);
+    color: rgba(0,0,0,.86);
     text-decoration: none;
     font-weight: 700;
   }
 
-  .nav-link:hover {
-    background: rgba(0, 0, 0, 0.04);
+  .nav-link:hover{
+    background: rgba(0,0,0,.04);
   }
 
-  /* Desktop default */
-  .cv-icon {
-    display: none;
-  }
-
-  .cv-btn {
+  /* IMPORTANT: do NOT apply the old nav a styles globally */
+  /* Button */
+  .cv-btn{
     padding: 10px 12px;
     border-radius: 14px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(0,0,0,.12);
     background: #fff;
-    color: rgba(0, 0, 0, 0.92);
+    color: rgba(0,0,0,.92);
     text-decoration: none;
     font-weight: 800;
     white-space: nowrap;
-    transition: transform 0.15s ease, background 0.15s ease,
-      border-color 0.15s ease;
   }
 
-  .cv-btn:hover {
-    background: rgba(0, 0, 0, 0.03);
-    border-color: rgba(0, 0, 0, 0.18);
+  .cv-btn:hover{
+    background: rgba(0,0,0,.03);
+    border-color: rgba(0,0,0,.18);
     transform: translateY(-1px);
   }
 
-  /* Mobile: hide text button, show icon */
-  @media (max-width: 720px) {
-    .cv-btn {
-      display: none;
-    }
-    .cv-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
-      border-radius: 12px;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      color: rgba(0, 0, 0, 0.82);
-      background: #fff;
-    }
-    .cv-icon:hover {
-      background: rgba(0, 0, 0, 0.04);
-      transform: translateY(-1px);
-    }
-  }
-
-  .social-links {
+  .social-links{
     display: flex;
     align-items: center;
     gap: 6px;
   }
 
-  .social-links a {
+  .social-links a{
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
     border-radius: 12px;
-    color: rgba(0, 0, 0, 0.82);
-    opacity: 0.85;
-    transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+    color: rgba(0,0,0,.82);
+    opacity: .85;
+    transition: opacity .15s ease, transform .15s ease, background .15s ease;
   }
 
-  .social-links a:hover {
+  .social-links a:hover{
     opacity: 1;
     transform: translateY(-1px);
-    background: rgba(0, 0, 0, 0.04);
+    background: rgba(0,0,0,.04);
   }
 
   .social-links a:focus-visible,
   .cv-btn:focus-visible,
-  .nav-link:focus-visible {
-    outline: 2px solid rgba(0, 0, 0, 0.25);
+  .nav-link:focus-visible{
+    outline: 2px solid rgba(0,0,0,.25);
     outline-offset: 2px;
   }
 
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
-    .cv-btn {
-      display: none;
-    } /* opcional: esconder CV en móvil para que no se apriete */
+  @media (max-width: 720px){
+    .social-links{ display: none; }
+    .cv-btn{ display: none; } /* opcional: esconder CV en móvil para que no se apriete */
   }
 </style>
